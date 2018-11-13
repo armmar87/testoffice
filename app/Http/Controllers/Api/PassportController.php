@@ -22,6 +22,7 @@ class PassportController extends Controller
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
             $user = Auth::user();
             $success['token'] =  $user->createToken('MyApp')->accessToken;
+            $success['token_type'] =  'Barrer';
             return response()->json(['success' => $success], $this->successStatus);
         }
         else{
@@ -55,6 +56,20 @@ class PassportController extends Controller
 
         return response()->json(['success'=>$success], $this->successStatus);
     }
+
+    /**
+     * Logout user (Revoke the token)
+     *
+     * @return [string] message
+     */
+    public function logout(Request $request)
+    {
+        $request->user()->token()->revoke();
+        return response()->json([
+            'message' => 'Successfully logged out'
+        ]);
+    }
+
 
     /**
      * details api
