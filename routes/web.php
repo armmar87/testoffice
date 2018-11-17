@@ -17,9 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::group(['domain' => env('APP_URL')], function () {
+//Route::group(['domain' => env('APP_URL')], function () {
 
     Route::get('/dashboard', 'HomeController@index')->name('home');
     Route::Resource('/expenses', 'ExpenseController');
 
-});
+//});

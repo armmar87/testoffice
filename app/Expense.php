@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Expense extends Model
 {
+    protected $fillable = ['title','description','kilo','price'];
+
     protected $table = 'expenses';
 
     public static function storeExpense($request)
@@ -22,16 +24,9 @@ class Expense extends Model
 
     public static function saveExpense($request, $expense)
     {
-        $expense->title = $request->title;
-        $expense->description = $request->description;
-        $expense->price = $request->price;
+        $expense->fill($request->all());
         $expense->save();
         return true;
     }
 
-    public static function deleteItemRow($id)
-    {
-        $expense = self::find($id);
-        return self::deleteItem($expense);
-    }
 }

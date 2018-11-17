@@ -25,6 +25,7 @@ class StoreExpense extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
+            'kilo' => array('regex:'.config()),
             'price' => 'required|integer',
         ];
     }

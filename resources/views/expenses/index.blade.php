@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="box-body" id="tableBlock">
-
+                        <div class="table-responsive">
                         <table class="table">
                             <thead>
                             <tr>
@@ -35,6 +35,7 @@
                                 <th scope="col">@lang('messages.date')</th>
                                 <th scope="col">@lang('messages.title')</th>
                                 <th scope="col">@lang('messages.description')</th>
+                                <th scope="col">@lang('messages.kilo')</th>
                                 <th scope="col">@lang('messages.price')</th>
                                 <th scope="col">@lang('messages.action')</th>
                             </tr>
@@ -43,9 +44,10 @@
                             @foreach($expenses as $expense)
                                 <tr>
                                     {{--<th scope="row">1</th>--}}
-                                    <td>{{$expense->created_at}}</td>
+                                    <td>{{\App\Helper\DateHelper::changeDateFormat($expense->created_at)}}</td>
                                     <td>{{$expense->title}}</td>
                                     <td>{{$expense->description}}</td>
+                                    <td>{{$expense->kilo}}</td>
                                     <td>{{$expense->price}}</td>
                                     <td>
                                         <a href="{{url('/expenses/' . $expense->id .'/edit')}}" class="btn btn-info btn-xs">
@@ -66,7 +68,7 @@
                             </tbody>
                         </table>
 
-
+                        </div>
 
                         {{--<table id="dataTable" class="table table-bordered table-striped">--}}
                             {{--<thead>--}}

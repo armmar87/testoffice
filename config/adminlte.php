@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>GUG</b>Office',
+    'logo' => '<img src="http://gugoffice.loc/img/logo.png" height="35"> <b>GUG</b>',
 
-    'logo_mini' => '<b>GUG</b>',
+    'logo_mini' => '<img src="http://gugoffice.loc/img/logo.png" height="35">',
 
     /*
     |--------------------------------------------------------------------------
@@ -200,8 +200,8 @@ return [
     */
 
     'plugins' => [
-        'datatables' => true,
+        'datatables' => false,
         'select2'    => true,
-        'chartjs'    => true,
+        'chartjs'    => false,
     ],
 ];
