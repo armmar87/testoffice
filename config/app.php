@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'hy',
 
     /*
     |--------------------------------------------------------------------------
@@ -91,7 +91,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'hy',
 
     /*
     |--------------------------------------------------------------------------
@@ -165,6 +165,7 @@ return [
          */
 
         Laravel\Passport\PassportServiceProvider::class,
+        JeroenNoten\LaravelAdminLte\ServiceProvider::class,
 
         /*
          * Application Service Providers...

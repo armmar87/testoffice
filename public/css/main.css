@@ -1,0 +1,11 @@
+.error-message {
+    border: 1px solid red!important;
+}
+.help-message-block{
+    font-size: 11px;
+    color: #e02d2d;
+    /*position: absolute;*/
+    bottom: 5px;
+    left: 0;
+    font-weight: normal;
+}

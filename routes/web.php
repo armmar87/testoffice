@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::group(['domain' => env('APP_URL')], function () {
+
+    Route::get('/dashboard', 'HomeController@index')->name('home');
+    Route::Resource('/expenses', 'ExpenseController');
+
+});
