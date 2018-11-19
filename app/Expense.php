@@ -3,13 +3,31 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+
+
 use Illuminate\Support\Facades\Input;
+use Illuminate\Database\Eloquent\Builder;
+
 
 class Expense extends Model
 {
     protected $fillable = ['title','description','kilo','quantity','price'];
 
     protected $table = 'expenses';
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope('expenses', function (Builder $builder) {
+            $builder->orderBy('created_at', 'desc');
+        });
+    }
+
+    public static function getStartEndDatesData($from, $to)
+    {
+        return self::whereBetween('created_at', [$from, $to]);
+    }
 
     public static function storeExpense($request)
     {

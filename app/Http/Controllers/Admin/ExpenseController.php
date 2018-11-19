@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Expense;
+use App\Helper\DateHelper;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\DataRangeRules;
 use App\Http\Requests\StoreExpense;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
@@ -16,8 +19,9 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        $expenses = Expense::all();
-        return view('expenses.index', compact('expenses'));
+        $dates = DateHelper::getThisStartEndDateMonth();
+        $expenses = Expense::getStartEndDatesData($dates['monthStart'], $dates['monthEnd'])->get();
+        return view('admin.expenses.index', compact('expenses'));
     }
 
     /**
@@ -27,7 +31,7 @@ class ExpenseController extends Controller
      */
     public function create()
     {
-        return view('expenses.create');
+        return view('admin.expenses.create');
     }
 
     /**
@@ -61,7 +65,7 @@ class ExpenseController extends Controller
      */
     public function edit(Expense $expense)
     {
-        return view('expenses.edit', compact('expense'));
+        return view('admin.expenses.edit', compact('expense'));
     }
 
     /**
@@ -90,6 +94,8 @@ class ExpenseController extends Controller
 
     public function getExpensesDataRange(DataRangeRules $request)
     {
-        dd($request->all());
+        $expenses = Expense::getStartEndDatesData(new Carbon($request->start_date), new Carbon($request->end_date))->get();
+        $view['content'] = view('admin.expenses.data-table', compact('expenses'))->render();
+        return response()->json($view, 200);
     }
 }

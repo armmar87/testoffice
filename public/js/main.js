@@ -9,14 +9,18 @@ $(document).ready(function () {
 });
 
 let data = {};
+let dataTableBlock = $('#dataTableBlock');
 
-function deleteItem(url, method) {
+function deleteItem(target, url, method) {
+    let element = $(target).parents('tr');
     if (confirm("Դուք ցանկանում եք ջնջել ?")) {
         $.ajax({
             url: url,
             type: method,
             success: function(result) {
-                location.reload();
+                element.hide(2000, function () {
+                    element.remove()
+                });
             }
         });
     }
@@ -42,6 +46,46 @@ function dataRangePickerInit(url) {
 
 function sendDataRenge(url, data) {
     $.post( url, data, function( response ) {
-        modalContent.html( response );
+        console.log(response)
+        dataTableBlock.html( response.content );
+    });
+}
+
+function dataTableInit() {
+    $('#dataTable').DataTable({
+        'responsive'  : true,
+        'paging'      : true,
+        'lengthChange': true,
+        'searching'   : true,
+        'ordering'    : true,
+        'info'        : true,
+        'autoWidth'   : false,
+        "order": [[0, 'asc']],
+        // "columnDefs": [
+        //     { "width": "15%", "targets": 0 }
+        // ],
+        "language": {
+            "sEmptyTable": "Տվյալները բացակայում են",
+            "sProcessing": "Կատարվում է...",
+            "sInfoThousands":  ",",
+            "sLengthMenu": "Ցուցադրել _MENU_ արդյունքներ մեկ էջում",
+            "sLoadingRecords": "Բեռնվում է ...",
+            "sZeroRecords": "Հարցմանը համապատասխանող արդյունքներ չկան",
+            "sInfo": "Ցուցադրված են _START_-ից _END_ արդյունքները ընդհանուր _TOTAL_-ից",
+            "sInfoEmpty": "Արդյունքներ գտնված չեն",
+            "sInfoFiltered": "(ֆիլտրվել է ընդհանուր _MAX_ արդյունքներից)",
+            "sInfoPostFix":  "",
+            "sSearch": "Փնտրել",
+            "oPaginate": {
+                "sFirst": "Առաջին էջ",
+                "sPrevious": "Նախորդ էջ",
+                "sNext": "Հաջորդ էջ",
+                "sLast": "Վերջին էջ"
+            },
+            "oAria": {
+                "sSortAscending":  ": ակտիվացրեք աճման կարգով դասավորելու համար",
+                "sSortDescending": ": ակտիվացրեք նվազման կարգով դասավորելու համար"
+            }
+        }
     });
 }

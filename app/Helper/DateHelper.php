@@ -20,4 +20,11 @@ class DateHelper
     {
         return Carbon::createFromFormat(self::$dbFormat, $date)->format(self::$format);
     }
+
+    public static function getThisStartEndDateMonth()
+    {
+        return $data = [
+            'monthStart' => Carbon::now()->startOfMonth(),
+            'monthEnd' => Carbon::now()->endOfMonth()];
+    }
 }

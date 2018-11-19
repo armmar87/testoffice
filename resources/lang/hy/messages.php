@@ -15,5 +15,6 @@ return [
     'dashboard' => "Վահանակ",
     'kilo' => "Քաշը",
     'quantity' => "Քանակ",
+    'search_by_date' => "Որոնում ամսաթվով",
 
 ];

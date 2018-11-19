@@ -64,7 +64,8 @@
 
 @if(config('adminlte.plugins.datatables'))
     <!-- DataTables with bootstrap 3 renderer -->
-    <script src="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.js"></script>
+    {{--<script src="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.js"></script>--}}
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/r-2.2.2/datatables.min.js"></script>
 @endif
 
 @if(config('adminlte.plugins.chartjs'))
