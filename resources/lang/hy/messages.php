@@ -14,5 +14,6 @@ return [
     'edit' => "Խմբագրել",
     'dashboard' => "Վահանակ",
     'kilo' => "Քաշը",
+    'quantity' => "Քանակ",
 
 ];

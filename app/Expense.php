@@ -3,10 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Input;
 
 class Expense extends Model
 {
-    protected $fillable = ['title','description','kilo','price'];
+    protected $fillable = ['title','description','kilo','quantity','price'];
 
     protected $table = 'expenses';
 

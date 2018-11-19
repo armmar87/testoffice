@@ -17,7 +17,8 @@ class CreateExpensesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->longText('description')->nullable();
-            $table->float('kilo');
+            $table->float('kilo')->nullable();
+            $table->integer('quantity')->default(0);
             $table->integer('price');
             $table->timestamps();
         });

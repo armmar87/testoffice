@@ -43,6 +43,15 @@
             </div>
 
             <div class="form-group">
+                <label for="quantity">@lang('messages.quantity'):</label><br>
+                <input type="text" name="quantity" class="form-control @if($errors->has('quantity'))
+                    error-message @endif" id="quantity" value="{{old('quantity')?old('quantity'):0}}">
+                @if ($errors->has('quantity'))
+                    <span class="help-message-block">{{ $errors->first('quantity') }}</span>
+                @endif
+            </div>
+
+            <div class="form-group">
                 <label for="price">@lang('messages.price'):</label><br>
                 <input type="text" name="price" class="form-control @if($errors->has('price'))
                     error-message @endif" id="price" value="{{old('price')}}">

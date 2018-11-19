@@ -13,7 +13,7 @@ use Carbon\Carbon;
 
 class DateHelper
 {
-    protected static $format = 'd-m-Y';
+    protected static $format = 'd/m/Y';
     protected static $dbFormat = 'Y-m-d H:i:s';
 
     public static function changeDateFormat($date)
