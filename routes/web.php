@@ -22,4 +22,6 @@ Auth::routes();
     Route::get('/dashboard', 'HomeController@index')->name('home');
     Route::Resource('/expenses', 'ExpenseController');
 
+    Route::post('get-expenses-data-range', 'ExpenseController@getExpensesDataRange');
+
 //});

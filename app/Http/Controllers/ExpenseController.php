@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Expense;
+use App\Http\Requests\DataRangeRules;
 use App\Http\Requests\StoreExpense;
 use Illuminate\Http\Request;
 
@@ -85,5 +86,10 @@ class ExpenseController extends Controller
     public function destroy(Expense $expense)
     {
         $expense->delete();
+    }
+
+    public function getExpensesDataRange(DataRangeRules $request)
+    {
+        dd($request->all());
     }
 }

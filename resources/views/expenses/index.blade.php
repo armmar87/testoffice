@@ -13,7 +13,14 @@
 
 
     <div class="col-xs-12">
-        <a href="{{route('expenses.create')}}" class="btn btn-primary">@lang('messages.add') <i class="fa fa-plus"></i></a>
+        <div class="col-xs-8">
+            <a href="{{route('expenses.create')}}" class="btn btn-primary">@lang('messages.add') <i class="fa fa-plus"></i></a>
+        </div>
+        <div class="col-xs-4">
+            <label>Produces:</label>
+            <input type="text" name="daterange" class="form-control pull-right"/>
+        </div>
+
     </div>
     <div class="clearfix"></div>
 
@@ -120,4 +127,8 @@
     </section>
 
 @stop
+
+@section('js')
+    <script> dataRangePickerInit('/get-expenses-data-range') </script>
+@endsection
 

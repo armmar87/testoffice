@@ -39,12 +39,15 @@
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-            <script type="text/javascript">
-                let LARAVEL = {};
-                LARAVEL.APP_URL = {!! json_encode(url('/')) !!};
-                LARAVEL.CSRF_TOKEN =  {!! json_encode(csrf_token()) !!};
-            </script>
+    <script type="text/javascript">
+        let LARAVEL = {};
+        LARAVEL.APP_URL = {!! json_encode(url('/')) !!};
+        LARAVEL.CSRF_TOKEN =  {!! json_encode(csrf_token()) !!};
+    </script>
+
 </head>
 <body class="hold-transition @yield('body_class')">
 
@@ -68,6 +71,9 @@
     <!-- ChartJS -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
 @endif
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
 <script src="{{ asset('js/main.js') }}"></script>
 
