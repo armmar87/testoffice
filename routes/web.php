@@ -19,7 +19,7 @@ Auth::routes();
 
 //Route::group(['domain' => env('APP_URL')], function () {
 
-    Route::get('/dashboard', 'Admin\HomeController@index')->name('home');
+    Route::get('/dashboard', 'Admin\DashboardController@index')->name('home');
 
     Route::Resource('/expenses', 'Admin\ExpenseController');
     Route::post('get-expenses-data-range', 'Admin\ExpenseController@getExpensesDataRange');

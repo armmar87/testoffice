@@ -16,7 +16,7 @@
             @csrf
             @method('POST')
             <div class="form-group">
-                <label for="title">@lang('messages.title'):</label>
+                <label for="title">@lang('messages.title') *</label>
                 <input type="text" name="title" class="form-control @if($errors->has('title'))
                     error-message @endif" id="title" value="{{old('title')}}">
                 @if ($errors->has('title'))
@@ -25,7 +25,7 @@
             </div>
 
             <div class="form-group">
-                <label for="description">@lang('messages.description'):</label>
+                <label for="description">@lang('messages.description')</label>
                 <textarea type="text" name="description" class="form-control @if($errors->has('description'))
                     error-message @endif" id="description">{{old('description')}}</textarea>
                 @if ($errors->has('description'))
@@ -34,7 +34,7 @@
             </div>
 
             <div class="form-group">
-                <label for="kilo">@lang('messages.kilo'):</label><br>
+                <label for="kilo">@lang('messages.kilo')</label><br>
                 <input type="text" name="kilo" class="form-control @if($errors->has('kilo'))
                     error-message @endif" id="kilo" value="{{old('kilo')}}">
                 @if ($errors->has('kilo'))
@@ -43,7 +43,7 @@
             </div>
 
             <div class="form-group">
-                <label for="quantity">@lang('messages.quantity'):</label><br>
+                <label for="quantity">@lang('messages.quantity')</label><br>
                 <input type="text" name="quantity" class="form-control @if($errors->has('quantity'))
                     error-message @endif" id="quantity" value="{{old('quantity')?old('quantity'):0}}">
                 @if ($errors->has('quantity'))
@@ -52,7 +52,7 @@
             </div>
 
             <div class="form-group">
-                <label for="price">@lang('messages.price'):</label><br>
+                <label for="price">@lang('messages.price') *</label><br>
                 <input type="text" name="price" class="form-control @if($errors->has('price'))
                     error-message @endif" id="price" value="{{old('price')}}">
                 @if ($errors->has('price'))
