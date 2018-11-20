@@ -13,7 +13,7 @@
     <tbody>
     @foreach($expenses as $expense)
         <tr>
-            <td>{{\App\Helper\DateHelper::changeDateFormat($expense->created_at)}}</td>
+            <td>{{$expense->getDate($expense->created_at)}}</td>
             <td>{{$expense->title}}</td>
             <td>{{$expense->description}}</td>
             <td>{{$expense->kilo}}</td>

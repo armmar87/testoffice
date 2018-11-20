@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Helper\DateHelper;
 use Illuminate\Database\Eloquent\Model;
 
 
@@ -46,6 +47,11 @@ class Expense extends Model
         $expense->fill($request->all());
         $expense->save();
         return true;
+    }
+
+    public function getDate($date)
+    {
+       return DateHelper::changeDateFormat($date);
     }
 
 }
